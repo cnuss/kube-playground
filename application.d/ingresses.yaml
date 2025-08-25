@@ -5,14 +5,14 @@ metadata:
   name: guestbook
   namespace: guestbook
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /guestbook
 spec:
   ingressClassName: nginx
   rules:
   - host: guestbook.local
     http:
       paths:
-      - path: /
+      - path: /guestbook
         pathType: Prefix
         backend:
           service:
