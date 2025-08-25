@@ -41,27 +41,12 @@ releases:
               usernname: '{{ requiredEnv "GITHUB_USER" }}'
               password: '{{ requiredEnv "GITHUB_TOKEN" }}'
           - apiVersion: argoproj.io/v1alpha1
-            kind: AppProject
-            metadata:
-              name: '{{ requiredEnv "CODESPACE_NAME" }}'
-              namespace: argocd
-            spec:
-              description: 'Project for {{ requiredEnv "CODESPACE_NAME" }}'
-              sourceRepos:
-              - '{{ requiredEnv "GITHUB_SERVER_URL" }}/{{ requiredEnv "GITHUB_REPOSITORY" }}'
-              destinations:
-              - namespace: '*'
-                server: 'https://kubernetes.default.svc'
-              clusterResourceWhitelist:
-              - group: '*'
-                kind: '*'
-          - apiVersion: argoproj.io/v1alpha1
             kind: Application
             metadata:
               name: applications
               namespace: argocd
             spec:
-              project: '{{ requiredEnv "CODESPACE_NAME" }}'
+              project: default
               source:
                 repoURL: '{{ requiredEnv "GITHUB_SERVER_URL" }}/{{ requiredEnv "GITHUB_REPOSITORY" }}'
                 targetRevision: HEAD
