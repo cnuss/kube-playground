@@ -4,16 +4,17 @@
     "cpus": 4,
     "storage": "32gb"
   },
-  "waitFor": "onCreateCommand",
+  "waitFor": "updateContentCommand",
   "onCreateCommand": {
     "minikube": "minikube start",
     "helmfile": "helmfile init --force"
   },
-  "postCreateCommand": {
-    "ingress": "minikube addons enable ingress"
-  },
   "updateContentCommand": {
-    "helm": "helmfile apply"
+    "minikube": "minikube addons enable ingress",
+    "helmfile": "helmfile apply"
+  },
+  "postCreateCommand": {
+    
   },
   "postAttachCommand": {
     // TODO:
