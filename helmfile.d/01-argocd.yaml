@@ -1,0 +1,26 @@
+repositories:
+  - name: argo
+    url: https://argoproj.github.io/argo-helm
+
+releases:
+  - name: argo-cd
+    namespace: argocd
+    chart: argo/argo-cd
+    createNamespace: true
+    values:
+      - configs:
+          params:
+            server.insecure: "true"
+            server.basehref: "/argocd"
+            server.rootpath: "/argocd"
+            server.disable.auth: "true"
+        server:
+          ingress:
+            enabled: true
+            hostname: 'localhost'
+            path: '/argocd'
+            extraHosts:
+              - name: '{{ requiredEnv "CODESPACE_NAME" }}-443.{{ requiredEnv "GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN" }}'
+
+# global:
+#   domain: '{{ requiredEnv "CODESPACE_NAME" }}-443.{{ requiredEnv "GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN" }}'

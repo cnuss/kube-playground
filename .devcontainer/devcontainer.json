@@ -10,20 +10,26 @@
     "helmfile": "helmfile init --force"
   },
   "updateContentCommand": {
-    "minikube": "minikube addons enable ingress",
+    "ingress": "minikube addons enable ingress",
+    "ingress-dns": "minikube addons enable ingress-dns",
     "helmfile": "helmfile apply"
   },
   "postCreateCommand": {
     
   },
   "postAttachCommand": {
-    // TODO:
-    // nohup kubectl port-forward --pod-running-timeout=24h -n ingress-nginx service/ingress-nginx-controller :80 &
-    // kubectl port-forward service/argo-cd-argocd-server -n argocd 8080:443
+    "tunnel": "minikube tunnel --bind-addresss='*' -c"
   },
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
     "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {},
     "ghcr.io/schlich/devcontainer-features/helmfile:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-kubernetes-tools.vscode-kubernetes-tools"
+      ]
+    }
   }
 }
