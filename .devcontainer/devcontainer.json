@@ -11,11 +11,10 @@
   },
   "updateContentCommand": {
     "ingress": "minikube addons enable ingress",
-    "ingress-dns": "minikube addons enable ingress-dns",
-    "helmfile": "helmfile apply"
+    "ingress-dns": "minikube addons enable ingress-dns"
   },
   "postCreateCommand": {
-    
+    "helmfile": "helmfile apply"
   },
   "postAttachCommand": {
     "tunnel": "minikube tunnel --bind-addresss='*' -c"
