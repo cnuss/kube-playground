@@ -17,7 +17,7 @@ spec:
             name: guestbook-helm-guestbook
             port:
               number: 80
-  - host: '{{ requiredEnv "CODESPACE_NAME" }}-443.{{ requiredEnv "GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN" }}'
+  - host: redesigned-capybara-5gqq65v499376g-443.app.github.dev
     http:
       paths:
       - path: /guestbook
