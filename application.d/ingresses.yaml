@@ -4,8 +4,6 @@ kind: Ingress
 metadata:
   name: guestbook
   namespace: guestbook
-  annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   ingressClassName: nginx
   rules:

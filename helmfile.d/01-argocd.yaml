@@ -17,18 +17,28 @@ releases:
             server.basehref: "/argocd"
             server.rootpath: "/argocd"
             server.disable.auth: "true"
-        server:
-          ingress:
-            enabled: true
-            hostname: 'localhost'
-            path: '/argocd'
-            extraHosts:
-              - name: '{{ requiredEnv "CODESPACE_NAME" }}-443.{{ requiredEnv "GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN" }}'
   - name: extra-resources
     namespace: argocd
     chart: bedag/raw
     values:
       - resources:
+          - apiVersion: networking.k8s.io/v1
+            kind: Ingress
+            metadata:
+              name: argocd
+              namespace: argocd
+            spec:
+              ingressClassName: nginx
+              rules:
+              - http:
+                  paths:
+                  - backend:
+                      service:
+                        name: argo-cd-argocd-server
+                        port:
+                          number: 80
+                    path: /argocd
+                    pathType: Prefix
           - apiVersion: v1
             kind: Secret
             metadata:
