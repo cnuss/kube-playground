@@ -6,12 +6,11 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/argoproj/argocd-example-apps
-    chart: helm-guestbook
-    targetRevision: 0.1.0
-    helm:
-      valueFiles:
-        - guestbook/values.yaml
+    repoURL: https://github.com/argoproj/argocd-example-apps.git
+    targetRevision: HEAD
+    path: guestbook
+    valueFiles:
+      - guestbook/values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: guestbook
