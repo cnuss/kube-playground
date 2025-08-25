@@ -13,11 +13,7 @@ spec:
     path: helm-guestbook
     helm:
       valuesObject:
-        ingress:
-          enabled: true
-          hosts:
-            - guestbook.local
-          path: /
+        replicaCount: 1
   destination:
     server: https://kubernetes.default.svc
     namespace: guestbook
