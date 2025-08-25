@@ -12,7 +12,7 @@ spec:
     targetRevision: HEAD
     path: helm-guestbook
     helm:
-      values: |
+      valuesObject:
         ingress:
           enabled: true
           hosts:

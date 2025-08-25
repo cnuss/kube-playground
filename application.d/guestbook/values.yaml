@@ -1,6 +1,0 @@
-ingress:
-  enabled: true
-  hosts:
-    - guestbook.local
-  paths:
-    - /
