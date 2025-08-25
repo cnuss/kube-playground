@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook
+  namespace: argocd
+spec:
+  project: '{{ requiredEnv "CODESPACE_NAME" }}'
+  source:
+    repoURL: https://argoproj.github.io/argo-helm
+    chart: guestbook
+    targetRevision: 0.4.0
+    helm:
+      valueFiles:
+        - guestbook/values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: guestbook
+  syncPolicy:
+    automated: {}

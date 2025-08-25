@@ -1,6 +1,8 @@
 repositories:
   - name: argo
     url: https://argoproj.github.io/argo-helm
+  - name: bedag
+    url: https://bedag.github.io/helm-charts
 
 releases:
   - name: argo-cd
@@ -22,4 +24,50 @@ releases:
             path: '/argocd'
             extraHosts:
               - name: '{{ requiredEnv "CODESPACE_NAME" }}-443.{{ requiredEnv "GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN" }}'
-
+  - name: extra-resources
+    namespace: argocd
+    chart: bedag/raw
+    values:
+      - resources:
+          - apiVersion: v1
+            kind: Secret
+            metadata:
+              name: {{ requiredEnv "CODESPACE_NAME" }}
+              labels:
+                argocd.argoproj.io/secret-type: repository
+            stringData:
+              type: git
+              url: '{{ requiredEnv "GITHUB_SERVER_URL" }}/{{ requiredEnv "GITHUB_REPOSITORY" }}'
+              usernname: '{{ requiredEnv "GITHUB_USER" }}'
+              password: '{{ requiredEnv "GITHUB_TOKEN" }}'
+          - apiVersion: argoproj.io/v1alpha1
+            kind: AppProject
+            metadata:
+              name: '{{ requiredEnv "CODESPACE_NAME" }}'
+              namespace: argocd
+            spec:
+              description: 'Project for {{ requiredEnv "CODESPACE_NAME" }}'
+              sourceRepos:
+              - '{{ requiredEnv "GITHUB_SERVER_URL" }}/{{ requiredEnv "GITHUB_REPOSITORY" }}'
+              destinations:
+              - namespace: '*'
+                server: 'https://kubernetes.default.svc'
+              clusterResourceWhitelist:
+              - group: '*'
+                kind: '*'
+          - apiVersion: argoproj.io/v1alpha1
+            kind: Application
+            metadata:
+              name: applications
+              namespace: argocd
+            spec:
+              project: '{{ requiredEnv "CODESPACE_NAME" }}'
+              source:
+                repoURL: '{{ requiredEnv "GITHUB_SERVER_URL" }}/{{ requiredEnv "GITHUB_REPOSITORY" }}'
+                targetRevision: HEAD
+                path: application.d
+              destination:
+                server: https://kubernetes.default.svc
+                namespace: argocd
+              syncPolicy:
+                automated: {}
