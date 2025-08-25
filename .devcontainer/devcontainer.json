@@ -1,0 +1,27 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "hostRequirements": {
+    "cpus": 4
+  },
+  "waitFor": "onCreateCommand",
+  "onCreateCommand": {
+    "pki": "bash /workspaces/kube-playground/.pki/pki.sh",
+    "forward-8443": "gh codespace ports -c ${CODESPACE_NAME} forward 8443:8443 &"
+  },
+  "updateContentCommand": {
+    "kind": "kind create cluster --config /workspaces/kube-playground/.kind/config.yaml"
+  },
+  "postCreateCommand": {
+    "public-8443": "gh codespace ports -c ${CODESPACE_NAME} public 8443"
+  },
+  "postAttachCommand": {},
+  "portsAttributes": {
+    "8443": {
+      "label": "Kubernetes API",
+      "onAutoForward": "notify"
+    }
+  },
+  "features": {
+    "ghcr.io/devcontainers-extra/features/kind:1": {}
+  }
+}
