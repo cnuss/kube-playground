@@ -20,7 +20,7 @@ spec:
             port:
               number: 80
         path: /guestbook(/|$)(.*)
-        pathType: Prefix
+        pathType: ImplementationSpecific
   - host: redesigned-capybara-5gqq65v499376g-443.app.github.dev
     http:
       paths:
@@ -30,4 +30,4 @@ spec:
             port:
               number: 80
         path: /guestbook(/|$)(.*)
-        pathType: Prefix
+        pathType: ImplementationSpecific
