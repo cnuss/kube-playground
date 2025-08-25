@@ -45,6 +45,8 @@ releases:
             metadata:
               name: applications
               namespace: argocd
+              finalizers:
+                - resources-finalizer.argocd.argoproj.io
             spec:
               project: default
               source:
@@ -55,4 +57,6 @@ releases:
                 server: https://kubernetes.default.svc
                 namespace: argocd
               syncPolicy:
-                automated: {}
+                automated:
+                  prune: true
+                  selfHeal: true
