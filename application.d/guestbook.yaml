@@ -17,8 +17,7 @@ spec:
           enabled: true
           hosts:
             - guestbook.local
-          paths:
-            - /
+          path: /
   destination:
     server: https://kubernetes.default.svc
     namespace: guestbook
