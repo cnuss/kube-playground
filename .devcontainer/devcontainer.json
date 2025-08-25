@@ -17,7 +17,7 @@
     "helmfile": "helmfile apply"
   },
   "postAttachCommand": {
-    "tunnel": "minikube tunnel --bind-addresss='*' -c"
+    "tunnel": "minikube tunnel --bind-address='*' -c"
   },
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
