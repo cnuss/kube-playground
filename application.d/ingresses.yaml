@@ -4,8 +4,6 @@ kind: Ingress
 metadata:
   name: guestbook
   namespace: guestbook
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /guestbook
 spec:
   ingressClassName: nginx
   rules:
