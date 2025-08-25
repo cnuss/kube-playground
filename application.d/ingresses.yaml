@@ -9,18 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: localhost
-    http:
-      paths:
-      - backend:
-          service:
-            name: guestbook-helm-guestbook
-            port:
-              number: 80
-        path: /
-        pathType: Prefix
-  - host: redesigned-capybara-5gqq65v499376g-443.app.github.dev
-    http:
+  - http:
       paths:
       - backend:
           service:
