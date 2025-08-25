@@ -1,28 +1,27 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
   "hostRequirements": {
     "cpus": 4,
-    "storage": "64gb"
+    "storage": "32gb"
   },
   "waitFor": "onCreateCommand",
   "onCreateCommand": {
-    "pki": "bash /workspaces/kube-playground/.pki/pki.sh",
-    "forward-8443": "gh codespace ports -c ${CODESPACE_NAME} forward 8443:8443 &"
-  },
-  "updateContentCommand": {
-    "kind": "kind create cluster --config /workspaces/kube-playground/.kind/config.yaml"
+    "minikube": "minikube start",
+    "helmfile": "helmfile init --force"
   },
   "postCreateCommand": {
-    "public-8443": "gh codespace ports -c ${CODESPACE_NAME} public 8443"
+    "ingress": "minikube addons enable ingress"
   },
-  "postAttachCommand": {},
-  "portsAttributes": {
-    "8443": {
-      "label": "Kubernetes API",
-      "onAutoForward": "notify"
-    }
+  "updateContentCommand": {
+    "helm": "helmfile apply"
+  },
+  "postAttachCommand": {
+    // TODO:
+    // nohup kubectl port-forward --pod-running-timeout=24h -n ingress-nginx service/ingress-nginx-controller :80 &
+    // kubectl port-forward service/argo-cd-argocd-server -n argocd 8080:443
   },
   "features": {
-    "ghcr.io/devcontainers-extra/features/kind:1": {}
+    "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {},
+    "ghcr.io/schlich/devcontainer-features/helmfile:1": {}
   }
 }
