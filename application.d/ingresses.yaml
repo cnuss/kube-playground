@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: guestbook.local
+  - host: redesigned-capybara-5gqq65v499376g-443.app.github.dev
     http:
       paths:
       - path: /guestbook
