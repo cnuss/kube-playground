@@ -1,2 +1,6 @@
 crossplane:
   enabled: true
+
+aws:
+  accessKeyId: ""
+  secretAccessKey: ""

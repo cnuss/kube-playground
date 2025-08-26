@@ -1,5 +1,7 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
   "hostRequirements": {
     "cpus": 4,
     "storage": "32gb"
@@ -11,7 +13,9 @@
   },
   "updateContentCommand": {
     "ingress": "minikube addons enable ingress",
-    "ingress-dns": "minikube addons enable ingress-dns"
+    "ingress-dns": "minikube addons enable ingress-dns",
+    "hostpath": "minikube addons enable csi-hostpath-driver",
+    "snapshots": "minikube addons enable volumesnapshots"
   },
   "postCreateCommand": {
     "apply": "minikube start && helmfile apply"
@@ -24,15 +28,26 @@
     "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {},
     "ghcr.io/schlich/devcontainer-features/helmfile:1": {},
     "ghcr.io/dhoeric/features/k9s:1": {},
-    "ghcr.io/devcontainer-community/devcontainer-features/asdf-vm.com:1": {}
+    "ghcr.io/devcontainers/features/aws-cli:1": {}
   },
+  "portsAttributes": {
+    "80": {
+      "label": "Minikube Tunnel",
+      "onAutoForward": "openBrowser"
+    },
+    "*": {
+      "onAutoForward": "ignore"
+    }
+  },
+  "forwardPorts": [80],
   "customizations": {
     "vscode": {
       "extensions": [
         "ms-kubernetes-tools.vscode-kubernetes-tools",
         "esbenp.prettier-vscode",
         "editorconfig.editorconfig",
-        "github.vscode-github-actions"
+        "github.vscode-github-actions",
+        "kcl.kcl-vscode-extension"
       ],
       "settings": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",

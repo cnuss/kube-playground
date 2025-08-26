@@ -3,6 +3,10 @@ releases:
     namespace: crossplane
     chart: ./crossplane
     createNamespace: true
+    values:
+      - aws:
+          accessKeyId: '{{ requiredEnv "AWS_ACCESS_KEY_ID" }}'
+          secretAccessKey: '{{ requiredEnv "AWS_SECRET_ACCESS_KEY" }}'
 
 repositories:
   - name: crossplane
