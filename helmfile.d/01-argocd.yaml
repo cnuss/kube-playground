@@ -1,9 +1,15 @@
-repositories:
-  - name: argocd
-    url: https://argoproj.github.io/argo-helm
-
 releases:
   - name: argocd
     namespace: argocd
     chart: ./argocd
     createNamespace: true
+    values:
+      - github:
+          serverUrl: '{{ requiredEnv "GITHUB_SERVER_URL" }}'
+          repository: '{{ requiredEnv "GITHUB_REPOSITORY" }}'
+          user: '{{ requiredEnv "GITHUB_USER" }}'
+          token: '{{ requiredEnv "GITHUB_TOKEN" }}'
+
+repositories:
+  - name: argocd
+    url: https://argoproj.github.io/argo-helm

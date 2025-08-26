@@ -1,3 +1,9 @@
+github:
+  serverUrl: ""
+  repository: ""
+  user: ""
+  token: ""
+
 argocd:
   enabled: true
   configs:
@@ -7,8 +13,3 @@ argocd:
       server.rootpath: "/argocd"
       server.disable.auth: "true"
 
-github:
-  serverUrl: '{{ requiredEnv "GITHUB_SERVER_URL" }}'
-  repository: '{{ requiredEnv "GITHUB_REPOSITORY" }}'
-  user: '{{ requiredEnv "GITHUB_USER" }}'
-  token: '{{ requiredEnv "GITHUB_TOKEN" }}'
