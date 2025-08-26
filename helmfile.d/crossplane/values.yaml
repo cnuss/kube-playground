@@ -9,8 +9,7 @@ crossplane:
     - --enable-signature-verification
   provider:
     packages:
-      - xpkg.upbound.io/upbound/provider-family-aws:v2
-      - xpkg.upbound.io/upbound/provider-aws-s3:v2
+      - xpkg.upbound.io/crossplane-contrib/provider-aws:v0.54.2
 
 aws:
   accessKeyId: ""
