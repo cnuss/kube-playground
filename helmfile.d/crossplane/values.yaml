@@ -1,5 +1,8 @@
 crossplane:
   enabled: true
+  provider:
+    packages:
+      - xpkg.upbound.io/upbound/provider-family-aws:v2
 
 aws:
   accessKeyId: ""
