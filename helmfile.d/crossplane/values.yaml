@@ -1,9 +1,16 @@
 crossplane:
   enabled: true
+  args:
+    - --enable-deployment-runtime-configs
+    - --enable-usages
+    - --enable-realtime-compositions
+    - --enable-dependency-version-upgrades
+    - --enable-function-response-cache
+    - --enable-signature-verification
   provider:
     packages:
-      - xpkg.upbound.io/upbound/provider-family-aws:v2.0.1
-      - xpkg.upbound.io/upbound/provider-aws-s3:v2.0.1
+      - xpkg.upbound.io/upbound/provider-family-aws:v2
+      - xpkg.upbound.io/upbound/provider-aws-s3:v2
 
 aws:
   accessKeyId: ""
