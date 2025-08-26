@@ -23,14 +23,16 @@
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
     "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {},
     "ghcr.io/schlich/devcontainer-features/helmfile:1": {},
-    "ghcr.io/dhoeric/features/k9s:1": {}
+    "ghcr.io/dhoeric/features/k9s:1": {},
+    "ghcr.io/devcontainer-community/devcontainer-features/asdf-vm.com:1": {}
   },
   "customizations": {
     "vscode": {
       "extensions": [
         "ms-kubernetes-tools.vscode-kubernetes-tools",
         "esbenp.prettier-vscode",
-        "editorconfig.editorconfig"
+        "editorconfig.editorconfig",
+        "github.vscode-github-actions"
       ],
       "settings": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
