@@ -14,8 +14,7 @@
     "ingress-dns": "minikube addons enable ingress-dns"
   },
   "postCreateCommand": {
-    "minikube": "minikube start",
-    "helmfile": "helmfile apply"
+    "apply": "minikube start && helmfile apply"
   },
   "postAttachCommand": {
     "minikube": "minikube tunnel --bind-address='*' -c"
