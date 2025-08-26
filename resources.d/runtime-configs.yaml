@@ -14,4 +14,4 @@ spec:
           containers:
             - name: package-runtime
               args:
-                - --enable-provider-aws-s3
+                - --help
