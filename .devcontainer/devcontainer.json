@@ -4,7 +4,7 @@
     "cpus": 4,
     "storage": "32gb"
   },
-  "waitFor": "updateContentCommand",
+  "waitFor": "postCreateCommand",
   "onCreateCommand": {
     "minikube": "minikube start",
     "helmfile": "helmfile init --force"
