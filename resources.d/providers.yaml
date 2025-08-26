@@ -5,5 +5,3 @@ metadata:
   name: aws
 spec:
   package: xpkg.upbound.io/upbound/provider-family-aws:v2
-  runtimeConfigRef:
-    name: aws
