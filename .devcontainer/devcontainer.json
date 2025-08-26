@@ -22,13 +22,23 @@
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
     "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {},
-    "ghcr.io/schlich/devcontainer-features/helmfile:1": {}
+    "ghcr.io/schlich/devcontainer-features/helmfile:1": {},
+    "ghcr.io/dhoeric/features/k9s:1": {}
   },
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-kubernetes-tools.vscode-kubernetes-tools"
-      ]
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
+        "esbenp.prettier-vscode"
+      ],
+      "settings": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2,
+        "yaml.schemas": {
+          "https://www.schemastore.org/chart.json": "**/Chart.yaml"
+        }
+      }
     }
   }
 }
