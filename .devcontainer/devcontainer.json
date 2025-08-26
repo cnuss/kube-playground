@@ -11,8 +11,7 @@
   },
   "updateContentCommand": {
     "ingress": "minikube addons enable ingress",
-    "ingress-dns": "minikube addons enable ingress-dns",
-    "mount": "minikube mount /workspaces:/workspaces"
+    "ingress-dns": "minikube addons enable ingress-dns"
   },
   "postCreateCommand": {
     "minikube": "minikube start",
