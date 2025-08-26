@@ -1,1 +1,3 @@
+# Helm
 *.tgz
+Chart.lock

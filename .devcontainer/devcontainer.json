@@ -29,12 +29,12 @@
     "vscode": {
       "extensions": [
         "ms-kubernetes-tools.vscode-kubernetes-tools",
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
+        "editorconfig.editorconfig"
       ],
       "settings": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.formatOnSave": true,
-        "editor.tabSize": 2,
         "git.autofetch": true,
         "yaml.schemas": {
           "https://www.schemastore.org/chart.json": "**/Chart.yaml"
