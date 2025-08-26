@@ -2,8 +2,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: guestbook
-  namespace: guestbook
+  name: argocd
 spec:
   ingressClassName: nginx
   rules:
@@ -11,8 +10,8 @@ spec:
       paths:
       - backend:
           service:
-            name: guestbook-helm-guestbook
+            name: argocd-server
             port:
               number: 80
-        path: /
+        path: /argocd
         pathType: Prefix

@@ -1,0 +1,9 @@
+releases:
+  - name: bootstrap
+    namespace: default
+    chart: ./bootstrap
+    createNamespace: false
+    values:
+      - github:
+          serverUrl: '{{ requiredEnv "GITHUB_SERVER_URL" }}'
+          repository: '{{ requiredEnv "GITHUB_REPOSITORY" }}'

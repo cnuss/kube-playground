@@ -11,13 +11,15 @@
   },
   "updateContentCommand": {
     "ingress": "minikube addons enable ingress",
-    "ingress-dns": "minikube addons enable ingress-dns"
+    "ingress-dns": "minikube addons enable ingress-dns",
+    "mount": "minikube mount /workspaces:/workspaces"
   },
   "postCreateCommand": {
+    "minikube": "minikube start",
     "helmfile": "helmfile apply"
   },
   "postAttachCommand": {
-    "tunnel": "minikube tunnel --bind-address='*' -c"
+    "minikube": "minikube tunnel --bind-address='*' -c"
   },
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
