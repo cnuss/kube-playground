@@ -3,4 +3,8 @@ apiVersion: pkg.crossplane.io/v1beta1
 kind: DeploymentRuntimeConfig
 metadata:
   name: aws
-spec: {}
+spec:
+  providerRef:
+    name: aws
+  extraProviderPackages:
+    - xpkg.upbound.io/upbound/provider-aws-s3:v2
