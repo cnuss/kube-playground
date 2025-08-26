@@ -14,4 +14,4 @@ spec:
           containers:
             - name: package-runtime
               args:
-                - --help
+                - --debug
