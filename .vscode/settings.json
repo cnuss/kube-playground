@@ -1,5 +1,0 @@
-{
-    "yaml.schemas": {
-        "https://www.schemastore.org/chart.json": "file:///workspaces/kube-playground/helmfile.d/argocd/Chart.yaml"
-    }
-}
