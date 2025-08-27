@@ -14,6 +14,9 @@
   "postCreateCommand": {
     "helmfile": "helmfile apply"
   },
+  "postStartCommand": {
+    "minikube": "minikube status || minikube start"
+  },
   "postAttachCommand": {
     "tunnel": "minikube tunnel --bind-address='*' -c",
     "k9s": "k9s -A --logoless --splashless"
