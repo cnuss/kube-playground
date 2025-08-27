@@ -3,6 +3,10 @@ apiVersion: s3.aws.crossplane.io/v1beta1
 kind: Bucket
 metadata:
   generateName: crossplane-basic-
+  annotations:
+    argocd.argoproj.io/hook: Sync
+    argocd.argoproj.io/hook-policy: BeforeHookCreation
+    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
   labels:
     app.kubernetes.io/managed-by: crossplane-basic
 spec:
@@ -12,7 +16,7 @@ spec:
 apiVersion: s3.aws.crossplane.io/v1alpha3
 kind: BucketPolicy
 metadata:
-  generateName: crossplane-basic-
+  name: crossplane-basic-policy
 spec:
   forProvider:
     region: us-east-1
