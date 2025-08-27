@@ -8,21 +8,13 @@
   },
   "waitFor": "postCreateCommand",
   "onCreateCommand": {
-    "minikube": [
-      "minikube start",
-      "minikube addons enable ingress",
-      "minikube addons enable ingress-dns"
-    ],
-    "helmfile": ["helmfile init --force"]
-  },
-  "updateContentCommand": {
-    "helmfile": ["helmfile apply"]
+    "minikube": "minikube start && minikube addons enable ingress && minikube addons enable ingress-dns",
+    "helmfile": "helmfile init --force"
   },
   "postCreateCommand": {
-    "minikube": "minikube status || minikube start"
+    "helmfile": "helmfile apply"
   },
   "postAttachCommand": {
-    "minikube": "minikube status || minikube start",
     "tunnel": "minikube tunnel --bind-address='*' -c",
     "k9s": "k9s -A --logoless --splashless"
   },
