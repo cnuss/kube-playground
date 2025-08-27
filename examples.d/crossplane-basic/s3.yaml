@@ -15,7 +15,7 @@ metadata:
   generateName: crossplane-basic-
 spec:
   forProvider:
-    locationConstraint: us-east-1
+    region: us-east-1
     bucketNameSelector:
       matchControllerRef: true
       matchLabels:

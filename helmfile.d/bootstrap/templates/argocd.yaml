@@ -68,11 +68,7 @@ spec:
           allowEmpty: false
         syncOptions:
           - CreateNamespace=true
-          - PrunePropagationPolicy=foreground
-          - PruneLast=true
-          - ApplyOutOfSyncOnly=true
-          - RespectIgnoreDifferences=true
-          - Replace=false
+          - Replace=true
         retry:
           limit: 10
           backoff:
