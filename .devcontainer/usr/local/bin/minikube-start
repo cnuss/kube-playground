@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+set -Eeuo pipefail
 
-mkdir -p /workspaces/.minikube
-minikube start --driver=docker --mount --mount-string="/workspaces/.minikube:/var/lib/minikube"
+# TODO prebuild persistence
+# mkdir -p /workspaces/.minikube
+# minikube status || minikube start --driver=docker --mount --mount-string="/workspaces/.minikube:/var/lib/minikube"
+
+minikube start
+minikube minikube addons enable ingress 
+minikube addons enable ingress-dns
