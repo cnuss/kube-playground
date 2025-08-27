@@ -9,7 +9,7 @@ spec:
   forProvider:
     locationConstraint: us-east-1
 ---
-apiVersion: s3.aws.crossplane.io/v1beta1
+apiVersion: s3.aws.crossplane.io/v1alpha3
 kind: BucketPolicy
 metadata:
   generateName: crossplane-basic-
