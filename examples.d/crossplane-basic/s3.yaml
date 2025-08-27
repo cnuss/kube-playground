@@ -1,0 +1,36 @@
+---
+apiVersion: s3.aws.crossplane.io/v1beta1
+kind: Bucket
+metadata:
+  generateName: crossplane-basic-
+  labels:
+    app.kubernetes.io/managed-by: crossplane-basic
+spec:
+  forProvider:
+    locationConstraint: us-east-1
+---
+apiVersion: s3.aws.crossplane.io/v1beta1
+kind: BucketPolicy
+metadata:
+  generateName: crossplane-basic-
+spec:
+  forProvider:
+    locationConstraint: us-east-1
+    bucketNameSelector:
+      matchControllerRef: true
+      matchLabels:
+        app.kubernetes.io/managed-by: crossplane-basic
+      policy:
+        resolution: Required
+        resolve: Always
+    policy:
+      statements:
+        - effect: Allow
+          actions:
+            - s3:GetObject
+          principals:
+            - type: AWS
+              identifiers:
+                - "*"
+          resources:
+            - "arn:aws:s3:::${bucketName}/*"
