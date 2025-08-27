@@ -6,5 +6,5 @@ set -Eeuo pipefail
 # minikube status || minikube start --driver=docker --mount --mount-string="/workspaces/.minikube:/var/lib/minikube"
 
 minikube start
-minikube minikube addons enable ingress 
+minikube addons enable ingress
 minikube addons enable ingress-dns

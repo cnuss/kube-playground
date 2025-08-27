@@ -10,7 +10,8 @@ crossplane:
   provider:
     packages:
       - xpkg.upbound.io/upbound/provider-aws-s3:v1
-    functions:
+  functions:
+    packages:
       - xpkg.upbound.io/upbound/function-auto-ready:v0.5.0
       - xpkg.upbound.io/upbound/function-environment-configs:v0.4.0
       - xpkg.upbound.io/crossplane-contrib/function-kcl:v0.11.4
