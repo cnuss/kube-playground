@@ -19,7 +19,8 @@
     "apply": "minikube start && helmfile apply"
   },
   "postAttachCommand": {
-    "minikube": "minikube tunnel --bind-address='*' -c"
+    "minikube": "minikube tunnel --bind-address='*' -c",
+    "k9s": "k9s -A --logoless --splashless"
   },
   "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
