@@ -7,7 +7,7 @@ releases:
       - github:
           serverUrl: '{{ requiredEnv "GITHUB_SERVER_URL" }}'
           repository: '{{ requiredEnv "GITHUB_REPOSITORY" }}'
-          user: '{{ requiredEnv "GITHUB_USER" }}'
+          user: '{{ env "GITHUB_USER" | default "x-access-token" }}'
           token: '{{ requiredEnv "GITHUB_TOKEN" }}'
 
 repositories:
