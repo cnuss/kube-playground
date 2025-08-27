@@ -8,8 +8,10 @@
   },
   "waitFor": "postCreateCommand",
   "onCreateCommand": {
-    "minikube": "minikube start && minikube addons enable ingress && minikube addons enable ingress-dns",
     "helmfile": "helmfile init --force"
+  },
+  "updateContentCommand": {
+    "minikube": "minikube start && minikube addons enable ingress && minikube addons enable ingress-dns && helmfile apply"
   },
   "postCreateCommand": {
     "helmfile": "helmfile apply"
