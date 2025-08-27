@@ -4,7 +4,6 @@
   },
   "hostRequirements": {
     "cpus": 4,
-    "memory": "8gb",
     "storage": "32gb"
   },
   "waitFor": "postCreateCommand",
@@ -14,9 +13,7 @@
   },
   "updateContentCommand": {
     "ingress": "minikube addons enable ingress",
-    "ingress-dns": "minikube addons enable ingress-dns",
-    "hostpath": "minikube addons enable csi-hostpath-driver",
-    "snapshots": "minikube addons enable volumesnapshots"
+    "ingress-dns": "minikube addons enable ingress-dns"
   },
   "postCreateCommand": {
     "apply": "minikube start && helmfile apply"
