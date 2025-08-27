@@ -53,6 +53,7 @@
         "editor.formatOnSave": true,
         "workbench.colorTheme": "Default Dark+",
         "git.autofetch": true,
+        "git.rebaseWhenSync": true,
         "yaml.schemas": {
           "https://www.schemastore.org/chart.json": "**/Chart.yaml"
         }
