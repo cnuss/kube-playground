@@ -51,6 +51,7 @@
       "settings": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.formatOnSave": true,
+        "workbench.colorTheme": "Default Dark+",
         "git.autofetch": true,
         "yaml.schemas": {
           "https://www.schemastore.org/chart.json": "**/Chart.yaml"
