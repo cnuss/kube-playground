@@ -11,13 +11,13 @@
     "helmfile": "helmfile init --force"
   },
   "updateContentCommand": {
-    "minikube": "minikube start && minikube addons enable ingress && minikube addons enable ingress-dns && helmfile apply"
+    "minikube": "minikube-start && minikube addons enable ingress && minikube addons enable ingress-dns && helmfile apply"
   },
   "postCreateCommand": {
-    "helmfile": "(minikube status || minikube start) && helmfile apply"
+    "helmfile": "(minikube status || minikube-start) && helmfile apply"
   },
   "postStartCommand": {
-    "minikube": "minikube status || minikube start"
+    "minikube": "minikube status || minikube-start"
   },
   "postAttachCommand": {
     "tunnel": "minikube tunnel --bind-address='*' -c",

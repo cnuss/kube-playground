@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+mkdir -p /workspaces/.minikube
+minikube start --driver=docker --mount --mount-string="/workspaces/.minikube:/var/lib/minikube"

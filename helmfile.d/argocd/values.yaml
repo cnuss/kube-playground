@@ -10,10 +10,13 @@ argocd:
     enabled: false
   notifications:
     enabled: false
+  applicationsetController:
+    env:
+      - name: APPLICATIONSET_CONTROLLER_INTERVAL
+        value: "30s"
   configs:
     params:
       server.insecure: "true"
       server.basehref: "/argocd"
       server.rootpath: "/argocd"
       server.disable.auth: "true"
-
