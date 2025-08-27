@@ -2,6 +2,7 @@ releases:
   - name: crossplane
     namespace: crossplane
     chart: ./crossplane
+    devel: true
     createNamespace: true
     values:
       - aws:
