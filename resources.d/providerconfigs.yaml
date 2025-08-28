@@ -7,5 +7,5 @@ spec:
     secretRef:
       key: creds
       name: aws
-      namespace: crossplane
+      namespace: argocd
     source: Secret
