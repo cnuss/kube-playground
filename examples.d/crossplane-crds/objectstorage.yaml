@@ -23,10 +23,6 @@ spec:
                   type: string
                   description: The name of the object storage. If empty, a name will be generated.
                   default: null
-                provider:
-                  type: string
-                  description: The cloud provider where the object storage will be created.
-                  default: aws
                 location:
                   type: string
                   description: The location/region where the object storage will be created.
