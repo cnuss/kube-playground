@@ -22,7 +22,7 @@ spec:
               kind: Bucket
               spec:
                 forProvider:
-                  locationConstraint: "{{ .Values.aws.defaultRegion }}"
+                  region: "{{ .Values.aws.defaultRegion }}"
                 providerConfigRef:
                   name: default
             patches:
