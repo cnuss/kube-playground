@@ -11,7 +11,7 @@
     "helmfile": "helmfile init --force"
   },
   "postStartCommand": {
-    "minikube": "minikube-start && helmfile apply"
+    // "minikube": "minikube-start && helmfile apply"
   },
   "postAttachCommand": {
     "tunnel": "minikube tunnel --bind-address='*' -c",
