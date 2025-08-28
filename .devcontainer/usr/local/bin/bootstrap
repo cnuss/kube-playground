@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-WORKSPACE_ROOT="${WORKSPACE_ROOT:-${CODESPACE_VSCODE_FOLDER:-${GITHUB_WORKSPACE:-$(git rev-parse --show-toplevel 2>/dev/null || pwd)}}}"
-BOOTSTRAP_DIR="${BOOTSTRAP_DIR:-$WORKSPACE_ROOT/bootstrap.d}"
-
 if minikube status >/dev/null 2>&1; then
   echo "✅ Minikube already running"
 else
@@ -19,4 +16,4 @@ else
 fi
 
 echo "🚀 Bootstrapping..."
-exec helmfile apply -q --suppress-diff -f ${BOOTSTRAP_DIR}
+exec helmfile apply -q --suppress-diff -f /workspaces/kube-playground/bootstrap.d

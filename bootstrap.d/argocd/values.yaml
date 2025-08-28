@@ -4,8 +4,17 @@ github:
   user: ""
   token: ""
 
+aws:
+  accessKeyId: ""
+  secretAccessKey: ""
+
 argocd:
   enabled: true
+  global:
+    securityContext:
+      runAsUser: 1000
+      runAsGroup: 1000
+      fsGroup: 1000
   dex:
     enabled: false
   notifications:
@@ -14,6 +23,16 @@ argocd:
     env:
       - name: APPLICATIONSET_CONTROLLER_INTERVAL
         value: "30s"
+  repoServer:
+    volumes:
+      - hostPath:
+          path: /workspaces
+          type: Directory
+        name: workspaces
+    volumeMounts:
+      - name: workspaces
+        mountPath: /workspaces
+        readOnly: true
   configs:
     params:
       server.insecure: "true"
