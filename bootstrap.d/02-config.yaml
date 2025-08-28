@@ -9,3 +9,6 @@ releases:
           repository: '{{ requiredEnv "GITHUB_REPOSITORY" }}'
           user: '{{ env "GITHUB_USER" | default "x-access-token" }}'
           token: '{{ requiredEnv "GITHUB_TOKEN" }}'
+        aws:
+          accessKeyId: '{{ requiredEnv "AWS_ACCESS_KEY_ID" }}'
+          secretAccessKey: '{{ requiredEnv "AWS_SECRET_ACCESS_KEY" }}'

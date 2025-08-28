@@ -7,5 +7,5 @@ spec:
     secretRef:
       key: creds
       name: aws
-      namespace: argocd
+      namespace: default
     source: Secret
