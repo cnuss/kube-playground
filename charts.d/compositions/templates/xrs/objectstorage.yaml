@@ -27,7 +27,7 @@ spec:
                   name: default
             patches:
               - fromFieldPath: "spec.location"
-                toFieldPath: "spec.forProvider.locationConstraint"
+                toFieldPath: "spec.forProvider.region"
     - step: automatically-detect-readiness
       functionRef:
         name: upbound-function-auto-ready
