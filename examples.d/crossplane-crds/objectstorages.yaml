@@ -6,7 +6,7 @@ metadata:
 spec:
   group: example.org
   names:
-    kind: objectstorage
+    kind: ObjectStorage
     plural: objectstorages
   scope: Namespaced
   versions:
