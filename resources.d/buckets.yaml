@@ -1,6 +1,6 @@
-# ---
-# apiVersion: example.org/v1alpha1
-# kind: ObjectStorage
-# metadata:
-#   name: randomly-named-bucket
-# spec: {}
+---
+apiVersion: example.org/v1alpha1
+kind: ObjectStorage
+metadata:
+  name: a-bucket
+spec: {}
