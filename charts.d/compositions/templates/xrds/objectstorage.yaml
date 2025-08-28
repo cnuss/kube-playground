@@ -9,9 +9,6 @@ spec:
   names:
     kind: XObjectStorage
     plural: xobjectstorages
-  claimNames:
-    kind: ObjectStorage
-    plural: objectstorages
   versions:
     - name: v1alpha1
       served: true
