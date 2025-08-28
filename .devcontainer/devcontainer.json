@@ -4,10 +4,12 @@
   },
   "hostRequirements": {
     "cpus": 4,
+    "memory": 16,
     "storage": "32gb"
   },
   "waitFor": "postCreateCommand",
   "onCreateCommand": {
+    "minikube": "minikube config set cpu 2 && minikube config set memory 8",
     "helmfile": "helmfile init --force"
   },
   "postStartCommand": {
@@ -21,8 +23,8 @@
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
     "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {},
     "ghcr.io/schlich/devcontainer-features/helmfile:1": {},
-    "ghcr.io/dhoeric/features/k9s:1": {},
-    "ghcr.io/devcontainers/features/aws-cli:1": {}
+    // "ghcr.io/devcontainers/features/aws-cli:1": {}
+    "ghcr.io/dhoeric/features/k9s:1": {}
   },
   "portsAttributes": {
     "80": {
@@ -37,7 +39,7 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "ms-kubernetes-tools.vscode-kubernetes-tools",
+        // "ms-kubernetes-tools.vscode-kubernetes-tools",
         "esbenp.prettier-vscode",
         "editorconfig.editorconfig",
         "github.vscode-github-actions",
