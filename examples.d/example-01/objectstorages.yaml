@@ -11,6 +11,7 @@ spec:
   claimNames:
     kind: ObjectStorage
     plural: objectstorages
+  scope: Cluster
   versions:
     - name: v1alpha1
       served: true
