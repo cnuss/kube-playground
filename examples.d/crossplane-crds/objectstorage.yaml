@@ -1,0 +1,35 @@
+---
+apiVersion: apiextensions.crossplane.io/v1
+kind: CompositeResourceDefinition
+metadata:
+  name: objectstorage.example.org
+spec:
+  group: example.org
+  names:
+    kind: ObjectStorage
+    plural: ObjectStorages
+  versions:
+    - name: v1alpha1
+      served: true
+      referenceable: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: The name of the object storage. If empty, a name will be generated.
+                  default: null
+                provider:
+                  type: string
+                  description: The cloud provider where the object storage will be created.
+                  default: aws
+                location:
+                  type: string
+                  description: The location/region where the object storage will be created.
+                  default: us-east-2
+              required: []
+          required: ["spec"]
