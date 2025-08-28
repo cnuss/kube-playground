@@ -31,6 +31,9 @@ spec:
               - type: ToCompositeFieldPath
                 fromFieldPath: status.atProvider.arn
                 toFieldPath: status.bucketArn
+              - type: ToCompositeFieldPath
+                fromFieldPath: metadata.name
+                toFieldPath: status.bucketName
     - step: automatically-detect-readiness
       functionRef:
         name: upbound-function-auto-ready
