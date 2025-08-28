@@ -6,18 +6,26 @@ spec:
   compositeTypeRef:
     apiVersion: example.org/v1alpha1
     kind: objectstorage
-  resources:
-    - name: bucket
-      base:
-        apiVersion: s3.aws.crossplane.io/v1beta1
-        kind: Bucket
-        spec:
-          forProvider:
-            locationConstraint: "" # patched
-          providerConfigRef:
-            name: default
-      patches:
-        - fromFieldPath: "spec.location"
-          toFieldPath: "spec.forProvider.locationConstraint"
-        - fromFieldPath: "spec.name"
-          toFieldPath: "metadata.name"
+  mode: Pipeline
+  pipeline:
+    - step: patch-and-transform
+      functionRef:
+        name: function-patch-and-transform
+      input:
+        apiVersion: pt.fn.crossplane.io/v1beta1
+        kind: Resources
+        resources:
+          - name: bucket
+            base:
+              apiVersion: s3.aws.crossplane.io/v1beta1
+              kind: Bucket
+              spec:
+                forProvider:
+                  locationConstraint: "" # patched
+                providerConfigRef:
+                  name: default
+            patches:
+              - fromFieldPath: "spec.location"
+                toFieldPath: "spec.forProvider.locationConstraint"
+              - fromFieldPath: "spec.name"
+                toFieldPath: "metadata.name"
