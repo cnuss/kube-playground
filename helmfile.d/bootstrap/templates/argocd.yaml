@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     repoURL: "{{ .Values.github.serverUrl }}/{{ .Values.github.repository }}"
-    targetRevision: HEAD
+    targetRevision: feat/crossplane
     path: resources.d
   destination:
     server: https://kubernetes.default.svc
@@ -43,7 +43,7 @@ spec:
   generators:
     - git:
         repoURL: "{{ .Values.github.serverUrl }}/{{ .Values.github.repository }}"
-        revision: HEAD
+        revision: feat/crossplane
         directories:
           - path: examples.d/*
   template:
