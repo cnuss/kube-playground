@@ -9,17 +9,19 @@
   },
   "waitFor": "postCreateCommand",
   "onCreateCommand": {
-    "minikube": "minikube config set cpus 2 && minikube config set memory 8",
-    "helmfile": "helmfile init --force"
+    "cpus": "minikube config set cpus 2",
+    "memory": "minikube config set memory 8g",
+    "helmfile": "helmfile init --force",
+    "claude": "npm install -g @anthropic-ai/claude-code"
   },
-  "postStartCommand": {
-    // "minikube": "minikube-start && helmfile apply"
-  },
+  "postCreateCommand": "bootstrap",
+  "postStartCommand": "bootstrap",
   "postAttachCommand": {
     "tunnel": "minikube tunnel --bind-address='*' -c",
     "k9s": "k9s -A --logoless --splashless"
   },
   "features": {
+    "ghcr.io/devcontainers/features/node:1": {},
     "ghcr.io/devcontainers/features/docker-in-docker:2": {},
     "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {},
     "ghcr.io/schlich/devcontainer-features/helmfile:1": {},

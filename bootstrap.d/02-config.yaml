@@ -1,7 +1,7 @@
 releases:
-  - name: bootstrap
+  - name: config
     namespace: default
-    chart: ./bootstrap
+    chart: ./config
     createNamespace: false
     values:
       - github:
@@ -9,4 +9,3 @@ releases:
           repository: '{{ requiredEnv "GITHUB_REPOSITORY" }}'
           user: '{{ env "GITHUB_USER" | default "x-access-token" }}'
           token: '{{ requiredEnv "GITHUB_TOKEN" }}'
- 
