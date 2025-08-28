@@ -6,9 +6,11 @@ metadata:
 spec:
   group: example.org
   names:
-    kind: ObjectStorage
+    kind: XObjectStorage
     plural: xobjectstorages
-  scope: Namespaced
+  claimNames:
+    kind: ObjectStorage
+    plural: objectstorages
   versions:
     - name: v1alpha1
       served: true
@@ -38,7 +40,7 @@ metadata:
 spec:
   compositeTypeRef:
     apiVersion: example.org/v1alpha1
-    kind: ObjectStorage
+    kind: XObjectStorage
   mode: Pipeline
   pipeline:
     - step: patch-and-transform
