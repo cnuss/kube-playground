@@ -6,8 +6,8 @@ metadata:
 spec:
   group: example.org
   names:
-    kind: ObjectStorage
-    plural: ObjectStorages
+    kind: objectstorage
+    plural: objectstorages
   versions:
     - name: v1alpha1
       served: true
