@@ -2,7 +2,7 @@
 apiVersion: apiextensions.crossplane.io/v1
 kind: CompositeResourceDefinition
 metadata:
-  name: objectstorage.example.org
+  name: objectstorages.example.org
 spec:
   group: example.org
   names:
