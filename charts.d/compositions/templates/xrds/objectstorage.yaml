@@ -28,4 +28,11 @@ spec:
                   description: The location/region where the object storage will be created.
                   default: "{{ .Values.aws.defaultRegion }}"
               required: []
+            status:
+              type: object
+              properties:
+                bucketName:
+                  type: string
+                bucketArn:
+                  type: string
           required: ["spec"]

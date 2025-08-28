@@ -28,6 +28,9 @@ spec:
             patches:
               - fromFieldPath: "spec.location"
                 toFieldPath: "spec.forProvider.region"
+              - type: ToCompositeFieldPath
+                fromFieldPath: status.atProvider.arn
+                toFieldPath: status.bucketArn
     - step: automatically-detect-readiness
       functionRef:
         name: upbound-function-auto-ready
