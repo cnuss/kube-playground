@@ -9,7 +9,7 @@
   },
   "waitFor": "postCreateCommand",
   "onCreateCommand": {
-    "minikube": "minikube config set cpu 2 && minikube config set memory 8",
+    "minikube": "minikube config set cpus 2 && minikube config set memory 8",
     "helmfile": "helmfile init --force"
   },
   "postStartCommand": {
