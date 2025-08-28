@@ -72,3 +72,40 @@ spec:
         duration: 10s
         factor: 2
         maxDuration: 5m
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: compositions
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: file:///workspaces/kube-playground
+    targetRevision: HEAD
+    path: ./charts.d/compositions
+    helm:
+      releaseName: compositions
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: compositions
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: false
+    syncOptions:
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
+      - ApplyOutOfSyncOnly=true
+      - RespectIgnoreDifferences=true
+      - Replace=false
+    retry:
+      limit: 10
+      backoff:
+        duration: 10s
+        factor: 2
+        maxDuration: 5m
