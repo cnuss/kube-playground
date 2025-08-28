@@ -8,6 +8,7 @@ spec:
   names:
     kind: objectstorage
     plural: objectstorages
+  scope: Namespaced
   versions:
     - name: v1alpha1
       served: true
